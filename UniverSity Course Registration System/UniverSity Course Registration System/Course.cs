@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,13 +31,20 @@ namespace University_Course_Registration_System
 
         public bool IsFull()
         {
-            // TODO: Return true if CurrentEnrollment >= MaxCapacity
-            throw new NotImplementedException();
+                if(currentEnrollment >= maxCapacity)
+                {
+                    return true;
+                }
+                else 
+                {
+                    return false;
+                }
         }
 
         public bool HasPrerequisites(List<string> completedCourses)
         {
             // TODO: Check if ALL prerequisites exist in completedCourses
+            return Prerequisites.All(p => completedCourses.Contains(p)); 
             throw new NotImplementedException();
         }
 
@@ -46,12 +53,21 @@ namespace University_Course_Registration_System
             // TODO:
             // 1. Throw InvalidOperationException if course is full
             // 2. Otherwise increment CurrentEnrollment
+                if(CurrentEnrollment < maxCapacity)
+                {
+                    CurrentEnrollment++;
+                }
             throw new NotImplementedException();
+
         }
 
         public void DropStudent()
         {
             // TODO: Decrement CurrentEnrollment only if greater than zero
+            if(CurrentEnrollment > 0)
+            {
+                CurrentEnrollment--;
+            }
             throw new NotImplementedException();
         }
 
